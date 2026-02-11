@@ -29,6 +29,10 @@ const achievements = [
     title: 'NTSE Scholar',
     detail: 'National scholarship recipient; top-1000 nationwide.'
   }
+  ,{
+    title: 'SIH Internal Round Winner',
+    detail: 'Collaborated in a 5-member team to win the SIH internal round, surpassing 200+ competing teams.'
+  }
 ]
 
 export default function Profiles() {
@@ -58,11 +62,13 @@ export default function Profiles() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.05 }}
-                  className="flex flex-col items-center justify-center gap-2 p-4 rounded-xl bg-surface border border-white/5 hover:border-white/20 hover:bg-white/5 transition-all"
+                  className="flex items-center gap-3 p-4 rounded-xl bg-surface border border-white/5 hover:border-white/20 hover:bg-white/5 transition-all"
                 >
                   <img src={profile.icon} alt={profile.name} className="w-8 h-8" />
-                  <span className="text-sm font-semibold text-primary text-center">{profile.name}</span>
-                  <span className="text-xs text-secondary">Connect</span>
+                  <div className="flex flex-col">
+                    <span className="text-sm font-semibold text-primary">{profile.name}</span>
+                    <span className="text-xs text-secondary">Connect</span>
+                  </div>
                 </motion.a>
               ))}
             </div>
@@ -132,7 +138,7 @@ export default function Profiles() {
              </motion.div>
           </div>
 
-          {/* Achievements relocated here to de-emphasize NTSE and remove CGPA/percentages */}
+          {/* Achievements */}
           <div>
             <motion.h3 
               initial={{ opacity: 0, y: 10 }}

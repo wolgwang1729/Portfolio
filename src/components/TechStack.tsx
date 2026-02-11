@@ -14,19 +14,25 @@ const skills: Record<string, SkillItem[]> = {
     { name: 'Python', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg' },
     { name: 'Java', logoUrl: 'https://cdn.iconscout.com/icon/free/png-512/free-java-logo-icon-svg-download-png-2945017.png' },
     { name: 'JavaScript', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg' },
-    { name: 'SQL', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg' },
+    { name: 'TypeScript', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/typescript.svg' },
     { name: 'HTML', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg' },
+    { name: 'CSS', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/css3.svg' },
     { name: 'LaTeX', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/latex.svg' },
+    { name: 'SQL', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg' },
+    { name: 'Bash', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gnubash.svg' },
   ],
   Tools: [
     { name: 'Git/GitHub', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg' },
-    { name: 'VS Code', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudiocode.svg' },
     { name: 'Google Cloud Platform', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googlecloud.svg' },
+    { name: 'Postman', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postman.svg' },
+    { name: 'Jupyter', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/jupyter.svg' },
     { name: 'AutoCAD', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/autodesk.svg' },
   ],
   Frameworks: [
     { name: 'React', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg' },
     { name: 'Node.js', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nodedotjs.svg' },
+    { name: 'Next.js', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nextdotjs.svg' },
+    { name: 'Express', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/express.svg' },
     { name: 'Flask', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/flask.svg' },
     { name: 'Tailwind CSS', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tailwindcss.svg' },
   ],
@@ -58,7 +64,7 @@ export default function TechStack() {
           Technical Skills
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
           <SkillCard 
             title="Languages" 
             icon={<Code2 className="w-6 h-6 text-accent" />} 
@@ -96,7 +102,7 @@ function SkillCard({ title, icon, items, delay }: { title: string, icon: React.R
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay }}
-      className="p-6 rounded-2xl bg-surface border border-white/5 hover:border-white/10 transition-colors group"
+      className="p-6 rounded-2xl bg-surface border border-white/5 hover:border-white/10 transition-colors group h-full flex flex-col"
     >
       <div className="flex items-center gap-3 mb-6">
         <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
