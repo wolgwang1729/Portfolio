@@ -37,12 +37,12 @@ const projects = [
   },
   {
     title: 'Int-O-View',
-    description: 'AI-agent interviewer using Gemma 2, Qwen QwQ, and ElevenLabs; LangGraph + Supabase embeddings for contextual Q&A; powered 100 real-time simulations and won 1st place in SIH internal round.',
+    description: 'AI-agent interviewer using Gemma 2, Qwen QwQ, and ElevenLabs; LangGraph + Supabase embeddings for contextual Q&A; powered 100 real-time simulations and won 1st SIH internal round.',
     tags: ['LangChain', 'React', 'Flask'],
     icon: <User className="w-6 h-6 text-blue-400" />,
     image: '/images/projects/int-o-view.png',
     links: { github: 'https://github.com/wolgwang1729/Int-O-View', demo: 'https://int-o-view.vercel.app/' },
-    highlight: '1st Place SIH'
+    highlight: 'Won Internal SIH'
   },
   {
     title: 'Lung Cancer Detection',
