@@ -17,10 +17,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth relative`}>
       <body className="bg-background text-primary min-h-screen font-sans selection:bg-accent/30 selection:text-accent overflow-x-hidden">
         <Navbar />
-        <main className="flex min-h-screen flex-col items-center justify-between">
+        <main className="relative flex min-h-screen flex-col items-center justify-between">
           {children}
         </main>
         <Footer />

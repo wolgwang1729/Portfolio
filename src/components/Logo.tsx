@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { useMemo } from 'react'
+import { useState, useEffect } from 'react'
 
 interface LogoProps {
   className?: string
@@ -9,11 +9,7 @@ interface LogoProps {
   animationDuration?: number
 }
 
-export default function Logo({
-  className = '',
-  variant = 'clean',
-  animationDuration = 1.5,
-}: LogoProps) {
+function generatePath(variant: 'clean' | 'fractal'): string {
   const quartic = (x: number) => Math.pow(x, 4) - 2 * Math.pow(x, 2) + 1.2
 
   const weierstrass = (x: number) => {
@@ -21,33 +17,38 @@ export default function Logo({
     const a = 0.5
     const b = 3
     const iterations = 5
-
     for (let n = 0; n < iterations; n++) {
       y += Math.pow(a, n) * Math.cos(Math.pow(b, n) * Math.PI * x)
     }
-
     return y * 0.5 + 1.2
   }
 
-  const pathData = useMemo(() => {
-    const points = []
-    const func = variant === 'clean' ? quartic : weierstrass
+  const points = []
+  const func = variant === 'clean' ? quartic : weierstrass
+  const xMin = -1.6
+  const xMax = 1.6
+  const steps = variant === 'clean' ? 50 : 200
 
-    const xMin = -1.6
-    const xMax = 1.6
-    const steps = variant === 'clean' ? 50 : 200
+  for (let i = 0; i <= steps; i++) {
+    const xRaw = xMin + (i / steps) * (xMax - xMin)
+    const yRaw = func(xRaw)
+    const svgX = ((xRaw - xMin) / (xMax - xMin)) * 90 + 5
+    const svgY = 95 - (yRaw / 2.5) * 90
+    points.push(`${svgX},${svgY}`)
+  }
 
-    for (let i = 0; i <= steps; i++) {
-      const xRaw = xMin + (i / steps) * (xMax - xMin)
-      const yRaw = func(xRaw)
+  return `M ${points[0]} L ${points.slice(1).join(' L ')}`
+}
 
-      const svgX = ((xRaw - xMin) / (xMax - xMin)) * 90 + 5
-      const svgY = 95 - (yRaw / 2.5) * 90
+export default function Logo({
+  className = '',
+  variant = 'clean',
+  animationDuration = 1.5,
+}: LogoProps) {
+  const [pathData, setPathData] = useState<string | null>(null)
 
-      points.push(`${svgX},${svgY}`)
-    }
-
-    return `M ${points[0]} L ${points.slice(1).join(' L ')}`
+  useEffect(() => {
+    setPathData(generatePath(variant))
   }, [variant])
 
   return (
@@ -60,17 +61,19 @@ export default function Logo({
           </linearGradient>
         </defs>
 
-        <motion.path
-          d={pathData}
-          fill="none"
-          stroke="url(#logo-gradient)"
-          strokeWidth="8"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          initial={{ pathLength: 0, opacity: 0 }}
-          animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: animationDuration, ease: 'easeInOut' }}
-        />
+        {pathData && (
+          <motion.path
+            d={pathData}
+            fill="none"
+            stroke="url(#logo-gradient)"
+            strokeWidth="8"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{ duration: animationDuration, ease: 'easeInOut' }}
+          />
+        )}
       </svg>
     </div>
   )
