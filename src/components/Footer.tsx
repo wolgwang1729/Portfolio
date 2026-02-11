@@ -52,7 +52,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className={`text-secondary transition-colors ${link.hover}`}
-              aria-label={link.name}
+              aria-label={`Open ${link.name}`}
             >
               <link.icon className="w-5 h-5" />
             </a>

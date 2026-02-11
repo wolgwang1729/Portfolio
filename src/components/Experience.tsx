@@ -21,20 +21,12 @@ export default function Experience() {
             Socket.io-powered realtime updates with automated pre-fill from IQAC
             DB.
           </p>
-          <div className="mb-4">
-            <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-400">
-              • MERN stack data management suite
-            </div>
-            <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-400">
-              • 3-tier APAR workflow system
-            </div>
-            <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-400">
-              • JWT auth &amp; RBAC implementation
-            </div>
-            <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-400">
-              • Socket.io realtime updates
-            </div>
-          </div>
+          <ul className="mb-4 list-disc list-inside space-y-1 text-xs md:text-sm text-neutral-400">
+            <li>MERN stack data management suite</li>
+            <li>3-tier APAR workflow system</li>
+            <li>JWT auth &amp; RBAC implementation</li>
+            <li>Socket.io realtime updates</li>
+          </ul>
         </div>
       ),
     },
@@ -53,20 +45,12 @@ export default function Experience() {
             6-DoF non-cooperative satellite pose estimation on SPEED/SPEED+ with
             RANSAC + PnP; prototyped SWIN-based pixel voting decoder.
           </p>
-          <div className="mb-4">
-            <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-400">
-              • SPN &amp; PVNet pipelines
-            </div>
-            <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-400">
-              • ViT Pose &amp; SWIN implementations
-            </div>
-            <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-400">
-              • RANSAC + PnP integration
-            </div>
-            <div className="flex items-center gap-2 text-xs md:text-sm text-neutral-400">
-              • SWIN-based pixel voting decoder prototype
-            </div>
-          </div>
+          <ul className="mb-4 list-disc list-inside space-y-1 text-xs md:text-sm text-neutral-400">
+            <li>SPN &amp; PVNet pipelines</li>
+            <li>ViT Pose &amp; SWIN implementations</li>
+            <li>RANSAC + PnP integration</li>
+            <li>SWIN-based pixel voting decoder prototype</li>
+          </ul>
         </div>
       ),
     },

@@ -4,6 +4,9 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Github, ExternalLink, Cpu, Activity, User, Sparkles, Brain, Layers, ChevronDown, ChevronUp } from 'lucide-react'
 
+const projectImagePlaceholder =
+  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iOSIgdmlld0JveD0iMCAwIDIxIDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzE1MTUxNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzJiMmIyYiIvPjwvbGluZWFyR3JhZGllbnQ+PHJlY3Qgd2lkdGg9IjIxIiBoZWlnaHQ9IjkiIGZpbGw9InVybCgjZykiLz48L3N2Zz4='
+
 const projects = [
   {
     title: 'Open Source: NN-SVG',
@@ -55,7 +58,7 @@ const projects = [
     description: 'Collection of 7 builds: GPT-2 from scratch, Vision Transformer, and three CNN+RNN image captioning models implementing “Where to put the Image in an Image Caption Generator” on Flickr8k.',
     tags: ['Transformers', 'PyTorch', 'Research'],
     icon: <Brain className="w-6 h-6 text-purple-400" />,
-    image: '/images/projects/summer-ml-projects.png',
+    image: '/images/projects/summer-ml-projects.jpg',
     links: { github: 'https://github.com/wolgwang1729/Summer-ML-Projects' },
     highlight: '7 ML Builds'
   }
@@ -78,9 +81,9 @@ export default function Projects() {
           Featured Projects
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {featuredProjects.map((project, index) => (
-            <motion.div
+            <motion.li
               key={project.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -95,6 +98,8 @@ export default function Projects() {
                     alt={project.title}
                     width={1200}
                     height={514}
+                    placeholder="blur"
+                    blurDataURL={projectImagePlaceholder}
                     className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
@@ -123,19 +128,19 @@ export default function Projects() {
               <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">{project.title}</h3>
               <p className="text-secondary text-sm mb-4 flex-grow">{project.description}</p>
               
-              <div className="flex flex-wrap gap-2 mt-auto">
+              <ul className="flex flex-wrap gap-2 mt-auto">
                 {project.tags.map(tag => (
-                  <span key={tag} className="text-xs px-2 py-1 rounded bg-white/5 text-secondary border border-white/5">
+                  <li key={tag} className="text-xs px-2 py-1 rounded bg-white/5 text-secondary border border-white/5">
                     {tag}
-                  </span>
+                  </li>
                 ))}
-              </div>
-            </motion.div>
+              </ul>
+            </motion.li>
           ))}
           {showMore && (
             <>
               {remainingProjects.map((project, index) => (
-                <motion.div
+                <motion.li
                   key={project.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -150,6 +155,8 @@ export default function Projects() {
                         alt={project.title}
                         width={1200}
                         height={514}
+                        placeholder="blur"
+                        blurDataURL={projectImagePlaceholder}
                         className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
@@ -178,34 +185,38 @@ export default function Projects() {
                   <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">{project.title}</h3>
                   <p className="text-secondary text-sm mb-4 flex-grow">{project.description}</p>
                   
-                  <div className="flex flex-wrap gap-2 mt-auto">
+                  <ul className="flex flex-wrap gap-2 mt-auto">
                     {project.tags.map(tag => (
-                      <span key={tag} className="text-xs px-2 py-1 rounded bg-white/5 text-secondary border border-white/5">
+                      <li key={tag} className="text-xs px-2 py-1 rounded bg-white/5 text-secondary border border-white/5">
                         {tag}
-                      </span>
+                      </li>
                     ))}
-                  </div>
-                </motion.div>
+                  </ul>
+                </motion.li>
               ))}
-              <motion.a
-                href="https://github.com/wolgwang1729?tab=repositories"
-                target="_blank"
-                rel="noreferrer"
+              <motion.li
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: (featuredProjects.length + 1 + remainingProjects.length) * 0.1 }}
-                className="group flex items-center justify-center self-center justify-self-center md:col-span-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-secondary text-sm hover:text-white hover:border-accent/40 transition-colors"
+                className="flex items-center justify-center md:col-span-2"
               >
-                <span className="inline-flex items-center gap-2 whitespace-nowrap">
-                  <Github className="w-4 h-4 text-accent" />
-                  Browse the full archive on GitHub.
-                  <ExternalLink className="w-4 h-4 text-secondary group-hover:text-white transition-colors" />
-                </span>
-              </motion.a>
+                <a
+                  href="https://github.com/wolgwang1729?tab=repositories"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center justify-center px-4 py-2 rounded-full border border-white/10 bg-white/5 text-secondary text-sm hover:text-white hover:border-accent/40 transition-colors"
+                >
+                  <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                    <Github className="w-4 h-4 text-accent" />
+                    Browse the full archive on GitHub.
+                    <ExternalLink className="w-4 h-4 text-secondary group-hover:text-white transition-colors" />
+                  </span>
+                </a>
+              </motion.li>
             </>
           )}
-        </div>
+        </ul>
         <div className="flex justify-center mt-10">
           <motion.button
             type="button"
