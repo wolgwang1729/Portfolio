@@ -87,15 +87,18 @@ export default function Projects() {
               transition={{ delay: index * 0.1 }}
               className="group flex flex-col p-6 rounded-2xl bg-surface border border-white/5 hover:border-accent/20 transition-colors"
             >
-              <div className="mb-4 overflow-hidden rounded-xl border border-white/5 bg-white/5">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                  loading="lazy"
-                />
+              <div className="mb-4 rounded-xl border border-white/5 bg-white/5 p-2">
+                <div className="relative aspect-[21/9] overflow-hidden rounded-lg">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-black/30 opacity-60 transition-opacity duration-300 group-hover:opacity-0" />
+                </div>
               </div>
-              <div className="flex justify-between items-start mb-4">
+              <div className="flex justify-between items-center mb-4">
                 <div className="flex items-center gap-3">
                   <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
                     {project.icon}
@@ -104,7 +107,7 @@ export default function Projects() {
                     {project.highlight}
                   </span>
                 </div>
-                <div className="flex gap-3">
+                  <div className="flex gap-3">
                   {project.links.github && (
                     <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-white transition-colors"><Github className="w-5 h-5"/></a>
                   )}
@@ -137,15 +140,18 @@ export default function Projects() {
                   transition={{ delay: (featuredProjects.length + 1 + index) * 0.1 }}
                   className="group flex flex-col p-6 rounded-2xl bg-surface border border-white/5 hover:border-accent/20 transition-colors"
                 >
-                  <div className="mb-4 overflow-hidden rounded-xl border border-white/5 bg-white/5">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="h-56 w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                      loading="lazy"
-                    />
+                  <div className="mb-4 rounded-xl border border-white/5 bg-white/5 p-2">
+                    <div className="relative aspect-[21/9] overflow-hidden rounded-lg">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                        loading="lazy"
+                      />
+                      <div className="pointer-events-none absolute inset-0 bg-black/30 opacity-60 transition-opacity duration-300 group-hover:opacity-0" />
+                    </div>
                   </div>
-                  <div className="flex justify-between items-start mb-4">
+                  <div className="flex justify-between items-center mb-4">
                     <div className="flex items-center gap-3">
                       <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
                         {project.icon}
