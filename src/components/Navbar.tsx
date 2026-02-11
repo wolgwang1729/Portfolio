@@ -61,8 +61,8 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-4 px-6 md:px-8"
       >
-        <Link href="/" className="flex items-center gap-2 group">
-          <Logo className="h-10 w-10" variant="clean" />
+        <Link href="/" className="flex items-center gap-2 group p-2 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg run overflow-hidden">
+          <Logo className="h-6 w-6" variant="clean" />
           <span className="font-mono font-bold text-primary hidden sm:block">wolgwang</span>
         </Link>
 
