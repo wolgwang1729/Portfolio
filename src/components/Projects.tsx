@@ -96,7 +96,7 @@ export default function Projects() {
               className="group flex flex-col p-6 rounded-2xl bg-surface border border-white/5 hover:border-accent/20 transition-colors"
             >
               <div className="mb-4 rounded-xl border border-white/5 bg-white/5 p-2">
-                <div className="relative aspect-[21/9] overflow-hidden rounded-lg">
+                <div className="relative aspect-21/9 overflow-hidden rounded-lg">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -143,7 +143,7 @@ export default function Projects() {
               </div>
 
               <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">{project.title}</h3>
-              <p className="text-secondary text-sm mb-4 flex-grow">{project.description}</p>
+              <p className="text-secondary text-sm mb-4 grow">{project.description}</p>
               
               <ul className="flex flex-wrap gap-2 mt-auto">
                 {project.tags.map(tag => (
@@ -166,7 +166,7 @@ export default function Projects() {
                   className="group flex flex-col p-6 rounded-2xl bg-surface border border-white/5 hover:border-accent/20 transition-colors"
                 >
                   <div className="mb-4 rounded-xl border border-white/5 bg-white/5 p-2">
-                    <div className="relative aspect-[21/9] overflow-hidden rounded-lg">
+                    <div className="relative aspect-21/9 overflow-hidden rounded-lg">
                       <Image
                         src={project.image}
                         alt={project.title}
@@ -213,7 +213,7 @@ export default function Projects() {
                   </div>
 
                   <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">{project.title}</h3>
-                  <p className="text-secondary text-sm mb-4 flex-grow">{project.description}</p>
+                  <p className="text-secondary text-sm mb-4 grow">{project.description}</p>
                   
                   <ul className="flex flex-wrap gap-2 mt-auto">
                     {project.tags.map(tag => (
