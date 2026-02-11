@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Link2, Target, Shield, Star, Hexagon } from 'lucide-react'
 
 const contactProfiles = [

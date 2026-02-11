@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Cpu, Code2, Layers, Boxes, Link2 } from 'lucide-react'
 import Image from 'next/image'
 

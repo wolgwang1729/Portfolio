@@ -1,5 +1,5 @@
 'use client'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Linkedin, Github, Mail } from 'lucide-react'
 import { RiInstagramLine, RiTwitterXLine } from 'react-icons/ri'
 

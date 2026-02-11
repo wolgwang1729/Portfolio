@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { Github, ExternalLink, Cpu, Activity, User, Sparkles, Brain, Layers, ChevronDown, ChevronUp } from 'lucide-react'
 
 const projectImagePlaceholder =

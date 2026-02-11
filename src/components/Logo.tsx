@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { motion } from 'motion/react'
+import { useMemo } from 'react'
 
 interface LogoProps {
   className?: string
@@ -45,11 +45,7 @@ export default function Logo({
   variant = 'clean',
   animationDuration = 1.5,
 }: LogoProps) {
-  const [pathData, setPathData] = useState<string | null>(null)
-
-  useEffect(() => {
-    setPathData(generatePath(variant))
-  }, [variant])
+  const pathData = useMemo(() => generatePath(variant), [variant])
 
   return (
     <div className={`relative flex items-center justify-center ${className}`}>
@@ -61,19 +57,17 @@ export default function Logo({
           </linearGradient>
         </defs>
 
-        {pathData && (
-          <motion.path
-            d={pathData}
-            fill="none"
-            stroke="url(#logo-gradient)"
-            strokeWidth="8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: animationDuration, ease: 'easeInOut' }}
-          />
-        )}
+        <motion.path
+          d={pathData}
+          fill="none"
+          stroke="url(#logo-gradient)"
+          strokeWidth="8"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: animationDuration, ease: 'easeInOut' }}
+        />
       </svg>
     </div>
   )
