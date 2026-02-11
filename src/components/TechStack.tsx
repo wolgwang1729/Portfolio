@@ -1,12 +1,48 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Cpu, Code2, Layers, Boxes } from 'lucide-react'
+import { Cpu, Code2, Layers, Boxes, Link2 } from 'lucide-react'
 
-const skills = {
-  Languages: ['C/C++', 'Python', 'Java', 'JavaScript', 'SQL', 'HTML', 'LaTeX'],
-  Tools: ['Git/GitHub', 'VS Code', 'Google Cloud Platform', 'AutoCAD'],
-  Frameworks: ['React', 'Node.js', 'Flask', 'Tailwind CSS'],
-  Libraries: ['PyTorch', 'Detectron2', 'TensorFlow', 'Keras', 'pandas', 'NumPy', 'Matplotlib', 'nltk', 'scikit-learn', 'OpenCV', 'LangChain'],
+type SkillItem = {
+  name: string
+  logoUrl?: string
+  fallbackIcon?: React.ReactNode
+}
+
+const skills: Record<string, SkillItem[]> = {
+  Languages: [
+    { name: 'C/C++', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/cplusplus.svg' },
+    { name: 'Python', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg' },
+    { name: 'Java', logoUrl: 'https://cdn.iconscout.com/icon/free/png-512/free-java-logo-icon-svg-download-png-2945017.png' },
+    { name: 'JavaScript', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg' },
+    { name: 'SQL', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mysql.svg' },
+    { name: 'HTML', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg' },
+    { name: 'LaTeX', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/latex.svg' },
+  ],
+  Tools: [
+    { name: 'Git/GitHub', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg' },
+    { name: 'VS Code', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/visualstudiocode.svg' },
+    { name: 'Google Cloud Platform', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googlecloud.svg' },
+    { name: 'AutoCAD', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/autodesk.svg' },
+  ],
+  Frameworks: [
+    { name: 'React', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg' },
+    { name: 'Node.js', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nodedotjs.svg' },
+    { name: 'Flask', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/flask.svg' },
+    { name: 'Tailwind CSS', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tailwindcss.svg' },
+  ],
+  Libraries: [
+    { name: 'PyTorch', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pytorch.svg' },
+    { name: 'Detectron2', logoUrl: '/Detectron2-Logo-Horz-cropped.svg' },
+    { name: 'TensorFlow', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tensorflow.svg' },
+    { name: 'Keras', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/keras.svg' },
+    { name: 'pandas', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/pandas.svg' },
+    { name: 'NumPy', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/numpy.svg' },
+    { name: 'Matplotlib', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Matplotlib_icon.svg/330px-Matplotlib_icon.svg.png' },
+    { name: 'nltk', fallbackIcon: <Link2 className="w-3.5 h-3.5 text-secondary" /> },
+    { name: 'scikit-learn', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/scikitlearn.svg' },
+    { name: 'OpenCV', logoUrl: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/opencv.svg' },
+    { name: 'LangChain', logoUrl: 'https://cdn.simpleicons.org/langchain' },
+  ],
 }
 
 export default function TechStack() {
@@ -53,7 +89,7 @@ export default function TechStack() {
   )
 }
 
-function SkillCard({ title, icon, items, delay }: { title: string, icon: React.ReactNode, items: string[], delay: number }) {
+function SkillCard({ title, icon, items, delay }: { title: string, icon: React.ReactNode, items: SkillItem[], delay: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -71,10 +107,23 @@ function SkillCard({ title, icon, items, delay }: { title: string, icon: React.R
       <div className="flex flex-wrap gap-2">
         {items.map((item) => (
           <span 
-            key={item} 
-            className="px-3 py-1 text-sm text-secondary bg-white/5 rounded-md border border-white/5"
+            key={item.name} 
+            className="flex items-center gap-2 px-3 py-1 text-sm text-secondary bg-white/5 rounded-md border border-white/5"
           >
-            {item}
+            <span className="flex items-center justify-center w-5 h-5 rounded bg-white/10 border border-white/10">
+              {item.logoUrl ? (
+                <img
+                  src={item.logoUrl}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="w-3.5 h-3.5 brightness-0 invert"
+                />
+              ) : (
+                item.fallbackIcon
+              )}
+            </span>
+            {item.name}
           </span>
         ))}
       </div>
