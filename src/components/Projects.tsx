@@ -9,7 +9,7 @@ const projects = [
     description: 'Shipped a feature to NN-SVG (5.6k+ stars) that lets researchers upload custom textures for input layers in publication-ready neural network diagrams.',
     tags: ['JavaScript', 'Three.js', 'OSS'],
     icon: <Sparkles className="w-6 h-6 text-accent" />,
-    image: 'https://camo.githubusercontent.com/9228aff25e07fcd77bedf35221b9bd41a382e269bc2a3ade031b2c07b4d209da/68747470733a2f2f692e737374617469632e6e65742f3230743048794d362e706e67',
+    image: '/images/projects/nn-svg.png',
     links: { github: 'https://github.com/alexlenail/NN-SVG/pull/68', demo: 'https://alexlenail.me/NN-SVG/AlexNet.html' },
     highlight: 'OSS Feature'
   },
@@ -18,7 +18,7 @@ const projects = [
     description: 'Built a 16-bit Harvard-architecture CPU with core logic, memory, I/O, and a three-phase compiler plus web IDE. Bundled an OS with 8 modular services for memory, graphics, and utilities.',
     tags: ['HDL', 'Compiler', 'Systems'],
     icon: <Cpu className="w-6 h-6 text-orange-400" />,
-    image: 'https://camo.githubusercontent.com/15caff66fded644c869ee03941a615cbe6b5ebee7f2f4527b4fd95f00492f93e/68747470733a2f2f692e737374617469632e6e65742f414a546c756f55382e706e67',
+    image: '/images/projects/vulcan-16.png',
     links: { github: 'https://github.com/wolgwang1729/Vulcan-16', demo: 'https://vulcan-16.vercel.app/' },
     highlight: 'HDL + Compiler'
   },
@@ -27,7 +27,7 @@ const projects = [
     description: 'Full-stack mentorship portal with secure mentor-student engagement, Q&A forums, and resource library for 5 competitive exams; deployed for 50+ underprivileged students.',
     tags: ['React', 'Node.js', 'MongoDB'],
     icon: <Layers className="w-6 h-6 text-sky-400" />,
-    image: 'https://camo.githubusercontent.com/9e7717555d41897466bd910b363757e5c2246939d945fdaa8f9ad4ee1068e68a/68747470733a2f2f692e737374617469632e6e65742f72554f506252656b2e706e67',
+    image: '/images/projects/mentoring-portal.png',
     links: { github: 'https://github.com/wolgwang1729/MentoringPortal', demo: 'https://mentoring-portal-one.vercel.app/' },
     highlight: 'Deployed Portal'
   },
@@ -36,7 +36,7 @@ const projects = [
     description: 'AI-agent interviewer using Gemma 2, Qwen QwQ, and ElevenLabs; LangGraph + Supabase embeddings for contextual Q&A; powered 100 real-time simulations and won 1st place in SIH internal round.',
     tags: ['LangChain', 'React', 'Flask'],
     icon: <User className="w-6 h-6 text-blue-400" />,
-    image: 'https://camo.githubusercontent.com/22fed8fc051edfb80b2383e1d87a0adc4e9a00b3bb07920e163404759248b63c/68747470733a2f2f692e737374617469632e6e65742f6d6461684d3644732e706e67',
+    image: '/images/projects/int-o-view.png',
     links: { github: 'https://github.com/wolgwang1729/Int-O-View', demo: 'https://int-o-view.vercel.app/' },
     highlight: '1st Place SIH'
   },
@@ -45,7 +45,7 @@ const projects = [
     description: 'Two-stage pipeline: Cascaded Mask R-CNN (lung segmentation on VESSEL12) + Faster R-CNN for nodules with five radiological attributes; achieved 93.62% bbox accuracy and AP50 up to 24.97.',
     tags: ['PyTorch', 'Detectron2', 'Medical AI'],
     icon: <Activity className="w-6 h-6 text-red-400" />,
-    image: 'https://camo.githubusercontent.com/aa09e93307ff51ad4280dddbc959a77bad06784856754c5b95c50bf95c9ab295/68747470733a2f2f692e737374617469632e6e65742f35315a6e4c7945482e706e67',
+    image: '/images/projects/lung-cancer.png',
     links: { github: 'https://github.com/wolgwang1729/LungCancerDetection' },
     highlight: '93.62% BBox'
   },
@@ -54,7 +54,7 @@ const projects = [
     description: 'Collection of 7 builds: GPT-2 from scratch, Vision Transformer, and three CNN+RNN image captioning models implementing “Where to put the Image in an Image Caption Generator” on Flickr8k.',
     tags: ['Transformers', 'PyTorch', 'Research'],
     icon: <Brain className="w-6 h-6 text-purple-400" />,
-    image: 'https://placehold.co/1200x800?text=Summer+ML+Projects',
+    image: '/images/projects/summer-ml-projects.png',
     links: { github: 'https://github.com/wolgwang1729/Summer-ML-Projects' },
     highlight: '7 ML Builds'
   }

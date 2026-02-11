@@ -3,17 +3,17 @@ import { motion } from 'framer-motion'
 import { Link2, Target, Shield, Star, Hexagon } from 'lucide-react'
 
 const contactProfiles = [
-  { name: 'GitHub', href: 'https://github.com/wolgwang', icon: 'https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg' },
-  { name: 'LinkedIn', href: 'https://linkedin.com/in/mayankyadav8', icon: 'https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg' },
-  { name: 'Kaggle', href: 'https://www.kaggle.com/wolgwang', icon: 'https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/kaggle.svg' },
-  { name: 'Stack Overflow', href: 'https://stackoverflow.com/users/14219194/wolgwang', icon: 'https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg' },
+  { name: 'GitHub', href: 'https://github.com/wolgwang', icon: '/images/profiles/github.svg' },
+  { name: 'LinkedIn', href: 'https://linkedin.com/in/mayankyadav8', icon: '/images/profiles/linkedin.svg' },
+  { name: 'Kaggle', href: 'https://www.kaggle.com/wolgwang', icon: '/images/profiles/kaggle.svg' },
+  { name: 'Stack Overflow', href: 'https://stackoverflow.com/users/14219194/wolgwang', icon: '/images/profiles/stack-overflow.svg' },
 ]
 
 const cpProfiles = [
-  { name: 'Codeforces', href: 'https://codeforces.com/profile/wolgwang', icon: 'https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/codeforces.svg' },
-  { name: 'LeetCode', href: 'https://www.leetcode.com/wolgwang', icon: 'https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg' },
-  { name: 'AtCoder', href: 'https://atcoder.jp/users/wolgwang', icon: 'https://img.atcoder.jp/logo/atcoder/logo_white.png' },
-  { name: 'CodeChef', href: 'https://www.codechef.com/users/wolgwang', icon: 'https://cdn.brandfetch.io/idM2-b7Taf/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767029469434' },
+  { name: 'Codeforces', href: 'https://codeforces.com/profile/wolgwang', icon: '/images/profiles/codeforces.svg' },
+  { name: 'LeetCode', href: 'https://www.leetcode.com/wolgwang', icon: '/images/profiles/leet-code.svg' },
+  { name: 'AtCoder', href: 'https://atcoder.jp/users/wolgwang', icon: '/images/profiles/atcoder.png' },
+  { name: 'CodeChef', href: 'https://www.codechef.com/users/wolgwang', icon: '/images/profiles/codechef.jpeg' },
 ]
 
 const achievements = [
