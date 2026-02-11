@@ -19,11 +19,11 @@ export default function About() {
         
         <div className="space-y-6 text-lg text-secondary leading-relaxed">
           <p>
-            Since I was young, I’ve been fascinated by how things are built, how they work, and the components that make them function. Initially drawn to mechanical objects, my curiosity shifted to tech, and that’s when I knew the path I wanted to take.
+            Since I was young, I've been fascinated by how things are built, how they work, and the components that make them function. Initially drawn to mechanical objects, my curiosity shifted to tech, and that's when I knew the path I wanted to take. Oh, and if you're wondering, <span className="text-accent font-semibold">wolgwang</span> is my code name.
           </p>
 
           <p>
-            I’m currently a pre-final year student, pursuing a Bachelor of Technology in Computer Science at Delhi Technological University. I’m passionate about creating AI solutions to solve real-world problems, and I have experience with transformers, RNNs, LSTMs, object detection, object segmentation, and computer vision. I’m also skilled in web development, using tools like Tailwind, JavaScript, and React.
+            I'm currently a pre-final year student, pursuing a Bachelor of Technology in Computer Science at Delhi Technological University. I'm passionate about creating AI solutions to solve real-world problems, and I have experience with transformers, RNNs, LSTMs, object detection, object segmentation, and computer vision. I'm also skilled in web development, using tools like Tailwind, JavaScript, and React.
           </p>
 
           <AnimatePresence>
@@ -36,7 +36,7 @@ export default function About() {
                 className="space-y-6 overflow-hidden"
               >
                 <blockquote className="border-l-4 border-accent pl-4 italic text-primary/80 my-6">
-                  Lao Tzu’s philosophy, "If you tell me, I will listen. If you show me, I will see. But if you let me experience, I will learn," shapes my approach to learning and problem-solving.
+                  Lao Tzu's philosophy, "If you tell me, I will listen. If you show me, I will see. But if you let me experience, I will learn," shapes my approach to learning and problem-solving.
                 </blockquote>
 
                 <p>
@@ -48,19 +48,19 @@ export default function About() {
                 </p>
 
                 <p>
-                  I’m committed to solving problems, with a strong focus and determination that my friends often describe as that of a "committed geek." Though this might not be obvious in an interview, anyone who’s worked with me closely would see my dedication and persistence until the task is completed.
+                  I'm committed to solving problems, with a strong focus and determination that my friends often describe as that of a "committed geek." Though this might not be obvious in an interview, anyone who's worked with me closely would see my dedication and persistence until the task is completed.
                 </p>
 
                 <p>
-                  In my free time, I enjoy exploring new things, reading research papers, tinkering with PyTorch code (sometimes banging my head on the wall, but determined to fix it), building websites, or listening to music while my model trains. I also love competitive programming on Codeforces, not as an expert but because it’s fun and keeps my grey matter in shape. Sometimes, I might be having long discussions with someone about some topic – I remember back in 11th grade, I used to have lengthy talks just to understand a vague derivation in physics.
+                  In my free time, I enjoy exploring new things, reading research papers, tinkering with PyTorch code (sometimes banging my head on the wall, but determined to fix it), building websites, or listening to music while my model trains. I also love competitive programming on Codeforces, not as an expert but because it's fun and keeps my grey matter in shape. Sometimes, I might be having long discussions with someone about some topic – I remember back in 11th grade, I used to have lengthy talks just to understand a vague derivation in physics.
                 </p>
 
                 <p>
-                  I’ve been fortunate to receive recognition such as being a National Talent Search Examination (NTSE) Scholar, earning the Reliance Foundation Undergraduate Scholarship, and receiving the CBSE Certificate of Merit in Mathematics for securing the highest marks in the 2023 CBSE All India Secondary School Examination. (I know marks don’t matter and they don't always reflect true passion or interest but I want to emphasize that I am genuinely passionate about mathematics. You can check my <a href="https://math.stackexchange.com/users/820922/wolgwang" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Math Stack Exchange</a> ^_^)
+                  I've been fortunate to receive recognition such as being a National Talent Search Examination (NTSE) Scholar, earning the Reliance Foundation Undergraduate Scholarship, and receiving the CBSE Certificate of Merit in Mathematics for securing the highest marks in the 2023 CBSE All India Secondary School Examination. (I know marks don't matter and they don't always reflect true passion or interest but I want to emphasize that I am genuinely passionate about mathematics. You can check my <a href="https://math.stackexchange.com/users/820922/wolgwang" className="text-accent hover:underline" target="_blank" rel="noopener noreferrer">Math Stack Exchange</a> ^_^)
                 </p>
 
                 <p>
-                  If you’ve read this far, thank you! I believe every person teaches you something, and I’d love to connect with you. Feel free to reach out if there are opportunities where I could contribute, collaborate, or learn from you.:)
+                  If you've read this far, thank you! I believe every person teaches you something, and I'd love to connect with you. Feel free to reach out if there are opportunities where I could contribute, collaborate, or learn from you.:)
                 </p>
               </motion.div>
             )}
