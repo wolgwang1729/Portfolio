@@ -15,9 +15,9 @@ export default function About() {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold font-mono text-primary mb-8 text-center">About Me</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono text-primary mb-8 text-center">About Me</h2>
         
-        <div className="space-y-6 text-lg text-secondary leading-relaxed">
+        <div className="space-y-6 text-base sm:text-lg text-secondary leading-relaxed">
           <p>
             Since I was young, I've been fascinated by how things are built, how they work, and the components that make them function. Initially drawn to mechanical objects, my curiosity shifted to tech, and that's when I knew the path I wanted to take. Oh, and if you're wondering, <span className="text-accent font-semibold">wolgwang</span> is my code name.
           </p>

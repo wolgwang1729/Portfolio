@@ -42,7 +42,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl font-mono font-bold text-primary mb-12 text-center"
+          className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-12 text-center"
         >
           Experience
         </motion.h2>
