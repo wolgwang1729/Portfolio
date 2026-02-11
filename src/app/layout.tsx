@@ -4,6 +4,7 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://portfolio-wolgwang.vercel.app'),
   title: 'Mayank Yadav | CS Portfolio',
   description: 'Building at the intersection of Systems Engineering and Computer Vision.',
   openGraph: {
