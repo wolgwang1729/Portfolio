@@ -13,7 +13,7 @@ export default function Experience() {
             Web Dev Intern
           </h3>
           <p className="text-accent text-sm font-mono mb-4">
-            @DTU • Oct 2025 — Dec 2025
+            @DTU-IQAC • Oct 2025 — Dec 2025
           </p>
           <p className="mb-4 text-xs md:text-sm font-normal text-neutral-400">
             Co-developed a MERN IQAC data suite for 15+ departments (500+

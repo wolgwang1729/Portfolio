@@ -13,7 +13,7 @@ const config: Config = {
         surface: "#0a0a0a",
         primary: "#e5e5e5",
         secondary: "#a3a3a3",
-        accent: "#10b981",
+        accent: "#4f8ea3",
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)"],

@@ -9,9 +9,9 @@ const contactLinks = [
     value: 'mayankyadav1729@gmail.com',
     href: 'mailto:mayankyadav1729@gmail.com',
     icon: Mail,
-    color: 'text-emerald-400',
-    borderColor: 'hover:border-emerald-400/50',
-    bgHover: 'hover:bg-emerald-400/10',
+    color: 'text-accent',
+    borderColor: 'hover:border-accent/50',
+    bgHover: 'hover:bg-accent/10',
   },
   {
     name: 'LinkedIn',

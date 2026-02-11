@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Link2, Target, Trophy, Star, Medal } from 'lucide-react'
+import { Link2, Target, Shield, Star, Hexagon } from 'lucide-react'
 
 const contactProfiles = [
   { name: 'GitHub', href: 'https://github.com/wolgwang', icon: 'https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg' },
@@ -118,7 +118,7 @@ export default function Profiles() {
               viewport={{ once: true }}
               className="text-2xl font-mono font-bold text-primary mb-8 flex items-center gap-2"
              >
-               <Trophy className="w-6 h-6 text-yellow-400" />
+               <Shield className="w-6 h-6 text-accent" />
                Positions of Responsibility
              </motion.h3>
              
@@ -146,7 +146,7 @@ export default function Profiles() {
               viewport={{ once: true }}
               className="text-2xl font-mono font-bold text-primary mb-6 flex items-center gap-2"
             >
-              <Medal className="w-6 h-6 text-amber-300" />
+              <Hexagon className="w-6 h-6 text-accent" />
               Achievements
             </motion.h3>
             <div className="grid sm:grid-cols-1 gap-4">

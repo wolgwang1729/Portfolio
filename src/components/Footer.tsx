@@ -7,7 +7,7 @@ const contactLinks = [
     name: 'Email',
     href: 'mailto:mayankyadav1729@gmail.com',
     icon: Mail,
-    hover: 'hover:text-emerald-400',
+    hover: 'hover:text-accent',
   },
   {
     name: 'LinkedIn',

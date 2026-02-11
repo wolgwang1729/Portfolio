@@ -7,7 +7,7 @@ const projects = [
     title: 'Open Source: NN-SVG',
     description: 'Shipped a feature to NN-SVG (5.6k+ stars) that lets researchers upload custom textures for input layers in publication-ready neural network diagrams.',
     tags: ['JavaScript', 'Three.js', 'OSS'],
-    icon: <Sparkles className="w-6 h-6 text-emerald-400" />,
+    icon: <Sparkles className="w-6 h-6 text-accent" />,
     links: { github: 'https://github.com/alexlenail/NN-SVG/pull/68', demo: 'https://alexlenail.me/NN-SVG/AlexNet.html' },
     highlight: 'OSS Feature'
   },

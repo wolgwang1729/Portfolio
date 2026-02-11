@@ -85,7 +85,7 @@ export default function TechStack() {
           />
           <SkillCard 
             title="Libraries" 
-            icon={<Boxes className="w-6 h-6 text-emerald-400" />} 
+            icon={<Boxes className="w-6 h-6 text-accent" />} 
             items={skills.Libraries} 
             delay={0.3}
           />
