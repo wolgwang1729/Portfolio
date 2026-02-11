@@ -6,9 +6,14 @@ import { useMemo } from 'react'
 interface LogoProps {
   className?: string
   variant?: 'clean' | 'fractal'
+  animationDuration?: number
 }
 
-export default function Logo({ className = '', variant = 'clean' }: LogoProps) {
+export default function Logo({
+  className = '',
+  variant = 'clean',
+  animationDuration = 1.5,
+}: LogoProps) {
   const quartic = (x: number) => Math.pow(x, 4) - 2 * Math.pow(x, 2) + 1.2
 
   const weierstrass = (x: number) => {
@@ -64,7 +69,7 @@ export default function Logo({ className = '', variant = 'clean' }: LogoProps) {
           strokeLinejoin="round"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ pathLength: 1, opacity: 1 }}
-          transition={{ duration: 1.5, ease: 'easeInOut' }}
+          transition={{ duration: animationDuration, ease: 'easeInOut' }}
         />
       </svg>
     </div>

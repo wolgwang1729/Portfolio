@@ -1,6 +1,7 @@
 'use client'
 import { Github, Linkedin, Mail } from 'lucide-react'
 import { RiInstagramLine, RiTwitterXLine } from 'react-icons/ri'
+import Logo from '@/components/Logo'
 
 const contactLinks = [
   {
@@ -39,7 +40,8 @@ export default function Footer() {
   return (
     <footer className="w-full py-4 mt-20 border-t border-white/5 bg-surface/30">
       <div className="container mx-auto px-4 flex flex-col gap-2 md:flex-row items-center md:items-end justify-between">
-        <div className="text-center md:text-left">
+        <div className="flex items-center gap-3 mb-4 md:mb-0">
+          <Logo className="h-8 w-8" variant="fractal" />
           <p className="text-secondary text-sm">
             © {new Date().getFullYear()} wolgwang. Built with ♥.
           </p>

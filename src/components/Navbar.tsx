@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Menu, X, FileText } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import Logo from '@/components/Logo'
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -58,49 +59,56 @@ export default function Navbar() {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-50 flex justify-center py-4 px-4"
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-4 px-6 md:px-8"
       >
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-2 p-1 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg">
-          {navItems.map((item) => {
-            const isActive = activeSection === item.href
-            return (
-              <Link 
-                key={item.name} 
-                href={item.href} 
-                className={`px-6 py-2 text-sm font-medium rounded-full transition-all ${
-                  isActive
-                    ? 'text-primary bg-white/10'
-                    : 'text-secondary hover:text-primary hover:bg-white/5'
-                }`}
-              >
-                {item.name}
-              </Link>
-            )
-          })}
-          <motion.a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ x: 20, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="ml-1 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black shadow-md hover:bg-gray-100 transition-all text-sm font-semibold"
-          >
-            <FileText className="w-4 h-4" />
-            <span>Resume</span>
-          </motion.a>
-        </div>
+        <Link href="/" className="flex items-center gap-2 group">
+          <Logo className="h-10 w-10" variant="clean" />
+          <span className="font-mono font-bold text-primary hidden sm:block">wolgwang</span>
+        </Link>
 
-        {/* Mobile hamburger button */}
-        <div className="md:hidden flex items-center">
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg text-primary"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+        <div className="flex items-center gap-3">
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-2 p-1 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href
+              return (
+                <Link 
+                  key={item.name} 
+                  href={item.href} 
+                  className={`px-6 py-2 text-sm font-medium rounded-full transition-all ${
+                    isActive
+                      ? 'text-primary bg-white/10'
+                      : 'text-secondary hover:text-primary hover:bg-white/5'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
+            })}
+            <motion.a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ x: 20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="ml-1 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black shadow-md hover:bg-gray-100 transition-all text-sm font-semibold"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Resume</span>
+            </motion.a>
+          </div>
+
+          {/* Mobile hamburger button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="p-2 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg text-primary"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}
