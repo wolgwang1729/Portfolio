@@ -4,8 +4,23 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Portfolio - Mayank Yadav',
-  description: 'Portfolio of Mayank Yadav, a CS student at DTU.',
+  title: 'Mayank Yadav | CS Portfolio',
+  description: 'Building at the intersection of Systems Engineering and Computer Vision.',
+  openGraph: {
+    title: 'Mayank Yadav | CS Portfolio',
+    description: 'Computer Science Student at DTU specializing in AI/ML and Systems.',
+    url: 'https://portfolio-wolgwang.vercel.app',
+    siteName: 'Mayank Yadav Portfolio',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1890,
+        height: 905,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 }
 
 import Navbar from '@/components/Navbar'

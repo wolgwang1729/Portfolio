@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Cpu, Code2, Layers, Boxes, Link2 } from 'lucide-react'
+import Image from 'next/image'
 
 type SkillItem = {
   name: string
@@ -118,11 +119,11 @@ function SkillCard({ title, icon, items, delay }: { title: string, icon: React.R
           >
             <span className="flex items-center justify-center w-5 h-5 rounded bg-white/10 border border-white/10">
               {item.logoUrl ? (
-                <img
+                <Image
                   src={item.logoUrl}
-                  alt=""
-                  aria-hidden="true"
-                  loading="lazy"
+                  alt={`${item.name} logo`}
+                  width={14}
+                  height={14}
                   className="w-3.5 h-3.5 brightness-0 invert"
                 />
               ) : (
