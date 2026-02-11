@@ -4,8 +4,12 @@ import { useState } from 'react'
 import { motion } from 'motion/react'
 import { Github, ExternalLink, Cpu, Activity, User, Sparkles, Brain, Layers, ChevronDown, ChevronUp } from 'lucide-react'
 
-const projectImagePlaceholder =
-  'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjEiIGhlaWdodD0iOSIgdmlld0JveD0iMCAwIDIxIDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzE1MTUxNSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzJiMmIyYiIvPjwvbGluZWFyR3JhZGllbnQ+PHJlY3Qgd2lkdGg9IjIxIiBoZWlnaHQ9IjkiIGZpbGw9InVybCgjZykiLz48L3N2Zz4='
+import nnSvg from '../../public/images/projects/nn-svg.png'
+import vulcan16 from '../../public/images/projects/vulcan-16.png'
+import mentoringPortal from '../../public/images/projects/mentoring-portal.png'
+import intOView from '../../public/images/projects/int-o-view.png'
+import lungCancer from '../../public/images/projects/lung-cancer.png'
+import summerMlProjects from '../../public/images/projects/summer-ml-projects.jpg'
 
 const projects = [
   {
@@ -13,7 +17,7 @@ const projects = [
     description: 'Shipped a feature to NN-SVG (5.6k+ stars) that lets researchers upload custom textures for input layers in publication-ready neural network diagrams.',
     tags: ['JavaScript', 'Three.js', 'OSS'],
     icon: <Sparkles className="w-6 h-6 text-accent" />,
-    image: '/images/projects/nn-svg.png',
+    image: nnSvg,
     links: { github: 'https://github.com/alexlenail/NN-SVG/pull/68', demo: 'https://alexlenail.me/NN-SVG/AlexNet.html' },
     highlight: 'OSS Feature'
   },
@@ -22,7 +26,7 @@ const projects = [
     description: 'Built a 16-bit Harvard-architecture CPU with core logic, memory, I/O, and a three-phase compiler plus web IDE. Bundled an OS with 8 modular services for memory, graphics, and utilities.',
     tags: ['HDL', 'Compiler', 'Systems'],
     icon: <Cpu className="w-6 h-6 text-orange-400" />,
-    image: '/images/projects/vulcan-16.png',
+    image: vulcan16,
     links: { github: 'https://github.com/wolgwang1729/Vulcan-16', demo: 'https://vulcan-16.vercel.app/' },
     highlight: 'HDL + Compiler'
   },
@@ -31,7 +35,7 @@ const projects = [
     description: 'Full-stack mentorship portal with secure mentor-student engagement, Q&A forums, and resource library for 5 competitive exams; deployed for 50+ underprivileged students.',
     tags: ['React', 'Node.js', 'MongoDB'],
     icon: <Layers className="w-6 h-6 text-sky-400" />,
-    image: '/images/projects/mentoring-portal.png',
+    image: mentoringPortal,
     links: { github: 'https://github.com/wolgwang1729/MentoringPortal', demo: 'https://mentoring-portal-one.vercel.app/' },
     highlight: 'Deployed Portal'
   },
@@ -40,7 +44,7 @@ const projects = [
     description: 'AI-agent interviewer using Gemma 2, Qwen QwQ, and ElevenLabs; LangGraph + Supabase embeddings for contextual Q&A; powered 100 real-time simulations and won 1st SIH internal round.',
     tags: ['LangChain', 'React', 'Flask'],
     icon: <User className="w-6 h-6 text-blue-400" />,
-    image: '/images/projects/int-o-view.png',
+    image: intOView,
     links: { github: 'https://github.com/wolgwang1729/Int-O-View', demo: 'https://int-o-view.vercel.app/' },
     highlight: 'Won Internal SIH'
   },
@@ -49,7 +53,7 @@ const projects = [
     description: 'Two-stage pipeline: Cascaded Mask R-CNN (lung segmentation on VESSEL12) + Faster R-CNN for nodules with five radiological attributes; achieved 93.62% bbox accuracy and AP50 up to 24.97.',
     tags: ['PyTorch', 'Detectron2', 'Medical AI'],
     icon: <Activity className="w-6 h-6 text-red-400" />,
-    image: '/images/projects/lung-cancer.png',
+    image: lungCancer,
     links: { github: 'https://github.com/wolgwang1729/LungCancerDetection' },
     highlight: '93.62% BBox'
   },
@@ -58,7 +62,7 @@ const projects = [
     description: 'Collection of 7 builds: GPT-2 from scratch, Vision Transformer, and three CNN+RNN image captioning models implementing “Where to put the Image in an Image Caption Generator” on Flickr8k.',
     tags: ['Transformers', 'PyTorch', 'Research'],
     icon: <Brain className="w-6 h-6 text-purple-400" />,
-    image: '/images/projects/summer-ml-projects.jpg',
+    image: summerMlProjects,
     links: { github: 'https://github.com/wolgwang1729/Summer-ML-Projects' },
     highlight: '7 ML Builds'
   }
@@ -96,10 +100,7 @@ export default function Projects() {
                   <Image
                     src={project.image}
                     alt={project.title}
-                    width={1200}
-                    height={514}
                     placeholder="blur"
-                    blurDataURL={projectImagePlaceholder}
                     className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
@@ -153,10 +154,7 @@ export default function Projects() {
                       <Image
                         src={project.image}
                         alt={project.title}
-                        width={1200}
-                        height={514}
                         placeholder="blur"
-                        blurDataURL={projectImagePlaceholder}
                         className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                         sizes="(max-width: 768px) 100vw, 50vw"
                       />
