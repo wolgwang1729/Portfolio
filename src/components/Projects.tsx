@@ -118,10 +118,26 @@ export default function Projects() {
                 </div>
                   <div className="flex gap-3">
                   {project.links.github && (
-                    <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-white transition-colors"><Github className="w-5 h-5"/></a>
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${project.title} on GitHub`}
+                      className="text-secondary hover:text-white transition-colors"
+                    >
+                      <Github className="w-5 h-5" />
+                    </a>
                   )}
                   {project.links.demo && (
-                    <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-white transition-colors"><ExternalLink className="w-5 h-5"/></a>
+                    <a
+                      href={project.links.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Open ${project.title} demo`}
+                      className="text-secondary hover:text-white transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
                   )}
                 </div>
               </div>
@@ -172,10 +188,26 @@ export default function Projects() {
                     </div>
                     <div className="flex gap-3">
                       {project.links.github && (
-                        <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-white transition-colors"><Github className="w-5 h-5"/></a>
+                        <a
+                          href={project.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Open ${project.title} on GitHub`}
+                          className="text-secondary hover:text-white transition-colors"
+                        >
+                          <Github className="w-5 h-5" />
+                        </a>
                       )}
                       {project.links.demo && (
-                        <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-white transition-colors"><ExternalLink className="w-5 h-5"/></a>
+                        <a
+                          href={project.links.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`Open ${project.title} demo`}
+                          className="text-secondary hover:text-white transition-colors"
+                        >
+                          <ExternalLink className="w-5 h-5" />
+                        </a>
                       )}
                     </div>
                   </div>

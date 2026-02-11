@@ -105,6 +105,8 @@ export default function Navbar() {
               onClick={() => setMobileOpen(!mobileOpen)}
               className="p-2 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg text-primary"
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -113,6 +115,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         <div
+          id="mobile-menu"
           className={`md:hidden absolute top-full mt-2 left-4 right-4 p-3 rounded-2xl border border-white/10 bg-surface/80 backdrop-blur-xl shadow-lg transition-all duration-200 origin-top ${
             mobileOpen ? 'opacity-100 scale-y-100 pointer-events-auto' : 'opacity-0 scale-y-95 pointer-events-none'
           }`}

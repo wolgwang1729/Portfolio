@@ -1,7 +1,5 @@
 'use client'
-import React from 'react'
 import { Timeline } from '@/components/ui/timeline'
-import { Briefcase } from 'lucide-react'
 
 export default function Experience() {
   const data = [
