@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Github, ExternalLink, Cpu, Activity, User, Sparkles, Brain, Layers, ChevronDown, ChevronUp } from 'lucide-react'
@@ -89,11 +90,13 @@ export default function Projects() {
             >
               <div className="mb-4 rounded-xl border border-white/5 bg-white/5 p-2">
                 <div className="relative aspect-[21/9] overflow-hidden rounded-lg">
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
+                    width={1200}
+                    height={514}
                     className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
-                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-black/30 opacity-60 transition-opacity duration-300 group-hover:opacity-0" />
                 </div>
@@ -142,11 +145,13 @@ export default function Projects() {
                 >
                   <div className="mb-4 rounded-xl border border-white/5 bg-white/5 p-2">
                     <div className="relative aspect-[21/9] overflow-hidden rounded-lg">
-                      <img
+                      <Image
                         src={project.image}
                         alt={project.title}
+                        width={1200}
+                        height={514}
                         className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
-                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                       />
                       <div className="pointer-events-none absolute inset-0 bg-black/30 opacity-60 transition-opacity duration-300 group-hover:opacity-0" />
                     </div>

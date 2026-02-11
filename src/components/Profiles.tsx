@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Link2, Target, Shield, Star, Hexagon } from 'lucide-react'
 
@@ -64,7 +65,7 @@ export default function Profiles() {
                   transition={{ delay: i * 0.05 }}
                   className="flex items-center gap-3 p-4 rounded-xl bg-surface border border-white/5 hover:border-white/20 hover:bg-white/5 transition-all"
                 >
-                  <img src={profile.icon} alt={profile.name} className="w-8 h-8" />
+                  <Image src={profile.icon} alt={profile.name} width={32} height={32} className="w-8 h-8" />
                   <div className="flex flex-col">
                     <span className="text-sm font-semibold text-primary">{profile.name}</span>
                     <span className="text-xs text-secondary">Connect</span>
@@ -98,7 +99,7 @@ export default function Profiles() {
                   transition={{ delay: i * 0.05 }}
                   className="flex items-center gap-3 p-4 rounded-xl bg-surface border border-white/5 hover:border-white/20 hover:bg-white/5 transition-all"
                 >
-                  <img src={profile.icon} alt={profile.name} className="w-8 h-8" />
+                  <Image src={profile.icon} alt={profile.name} width={32} height={32} className="w-8 h-8" />
                   <div className="flex flex-col">
                     <span className="text-sm font-semibold text-primary">{profile.name}</span>
                     <span className="text-xs text-secondary">View Profile</span>

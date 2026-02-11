@@ -54,20 +54,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/*Resume button*/}
-      <motion.a
-        href="/resume.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        initial={{ x: 60, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.15 }}
-        className="fixed top-4 right-4 z-[60] flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black shadow-lg hover:bg-gray-100 transition-all font-semibold cursor-pointer"
-      >
-        <FileText className="w-4 h-4" />
-        <span className="text-sm font-medium">Resume</span>
-      </motion.a>
-
       <motion.nav 
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -75,7 +61,7 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 flex justify-center py-4 px-4"
       >
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-1 p-1 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg">
+        <div className="hidden md:flex items-center gap-2 p-1 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg">
           {navItems.map((item) => {
             const isActive = activeSection === item.href
             return (
@@ -92,6 +78,18 @@ export default function Navbar() {
               </Link>
             )
           })}
+          <motion.a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ x: 20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="ml-1 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black shadow-md hover:bg-gray-100 transition-all text-sm font-semibold"
+          >
+            <FileText className="w-4 h-4" />
+            <span>Resume</span>
+          </motion.a>
         </div>
 
         {/* Mobile hamburger button */}
@@ -129,6 +127,16 @@ export default function Navbar() {
                 </Link>
               )
             })}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="px-4 py-3 text-sm font-semibold rounded-xl bg-white text-black hover:bg-gray-100 transition-all flex items-center gap-2"
+            >
+              <FileText className="w-4 h-4" />
+              <span>Resume</span>
+            </a>
           </div>
         </div>
       </motion.nav>
