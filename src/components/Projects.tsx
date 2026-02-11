@@ -183,7 +183,7 @@ export default function Projects() {
                 </motion.div>
               ))}
               <motion.a
-                href="https://github.com/wolgwang"
+                href="https://github.com/wolgwang1729?tab=repositories"
                 target="_blank"
                 rel="noreferrer"
                 initial={{ opacity: 0, y: 20 }}
