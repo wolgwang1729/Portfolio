@@ -1,8 +1,9 @@
 'use client'
 import Link from 'next/link'
 import { motion } from 'motion/react'
-import { Menu, X, FileText } from 'lucide-react'
+import { Menu, X, FileText, BookOpen } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Logo from '@/components/Logo'
 
 const navItems = [
@@ -17,8 +18,15 @@ const navItems = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('/')
+  // Add this hook to check current path
+  const pathname = usePathname()
 
+  // Update existing useEffect to only run on Home page
   useEffect(() => {
+    if (pathname !== '/') {
+        setActiveSection('/blog')
+        return
+    }
     const sectionIds = navItems
       .filter((item) => item.href.startsWith('#'))
       .map((item) => item.href.slice(1))
@@ -51,7 +59,7 @@ export default function Navbar() {
       observer.disconnect()
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [pathname])
 
   return (
     <>
@@ -70,11 +78,17 @@ export default function Navbar() {
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-2 p-1 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg">
             {navItems.map((item) => {
-              const isActive = activeSection === item.href
+              // Fix href for hash links when not on home
+              const href = (item.href.startsWith('#') && pathname !== '/') 
+                ? `/${item.href}` 
+                : item.href
+                
+              const isActive = activeSection === item.href || (pathname.startsWith('/blog') && item.href === '/blog')
+
               return (
                 <Link 
                   key={item.name} 
-                  href={item.href} 
+                  href={href} 
                   className={`px-6 py-2 text-sm font-medium rounded-full transition-all ${
                     isActive
                       ? 'text-primary bg-white/10'
@@ -85,6 +99,13 @@ export default function Navbar() {
                 </Link>
               )
             })}
+            <Link
+              href="/blog"
+              className="ml-1 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black shadow-md hover:bg-gray-100 transition-all text-sm font-semibold"
+            >
+              <BookOpen className="w-4 h-4" />
+              <span>Blog</span>
+            </Link>
             <motion.a
               href="/resume.pdf"
               target="_blank"
@@ -122,11 +143,17 @@ export default function Navbar() {
         >
           <div className="flex flex-col gap-1">
             {navItems.map((item) => {
-              const isActive = activeSection === item.href
+              // Fix href for hash links when not on home
+              const href = (item.href.startsWith('#') && pathname !== '/') 
+                ? `/${item.href}` 
+                : item.href
+                
+              const isActive = activeSection === item.href || (pathname.startsWith('/blog') && item.href === '/blog')
+
               return (
                 <Link
                   key={item.name}
-                  href={item.href}
+                  href={href}
                   onClick={() => setMobileOpen(false)}
                   className={`px-4 py-3 text-sm font-medium rounded-xl transition-all ${
                     isActive
@@ -138,6 +165,14 @@ export default function Navbar() {
                 </Link>
               )
             })}
+            <Link
+              href="/blog"
+              onClick={() => setMobileOpen(false)}
+              className="px-4 py-3 text-sm font-semibold rounded-xl bg-white text-black hover:bg-gray-100 transition-all flex items-center gap-2"
+            >
+              <BookOpen className="w-4 h-4" />
+              <span>Blog</span>
+            </Link>
             <a
               href="/resume.pdf"
               target="_blank"
