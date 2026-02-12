@@ -1,11 +1,12 @@
 'use client'
 
 import { motion, AnimatePresence } from 'motion/react'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
 export default function About() {
   const [isExpanded, setIsExpanded] = useState(false)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   return (
     <section id="about" className="py-20 px-4 md:px-8 max-w-4xl mx-auto">
@@ -26,7 +27,11 @@ export default function About() {
             I'm currently a pre-final year student, pursuing a Bachelor of Technology in Computer Science at Delhi Technological University. I'm passionate about creating AI solutions to solve real-world problems, and I have experience with transformers, RNNs, LSTMs, object detection, object segmentation, and computer vision. I'm also skilled in web development, using tools like Tailwind, JavaScript, and React.
           </p>
 
-          <AnimatePresence>
+          <AnimatePresence onExitComplete={() => {
+            if (!isExpanded) {
+              buttonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+            }
+          }}>
             {isExpanded && (
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
@@ -68,6 +73,7 @@ export default function About() {
 
           <div className="flex justify-center mt-6">
             <button
+              ref={buttonRef}
               onClick={() => setIsExpanded(!isExpanded)}
               className="inline-flex items-center gap-2 px-6 py-2 text-sm font-medium text-primary bg-surface/50 border border-white/10 rounded-full hover:bg-white/10 transition-colors"
             >

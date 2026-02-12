@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
-import { useState } from 'react'
-import { motion } from 'motion/react'
+import { useState, useRef } from 'react'
+import { motion, AnimatePresence } from 'motion/react'
 import { Github, ExternalLink, Cpu, Activity, User, Sparkles, Brain, Layers, ChevronDown, ChevronUp } from 'lucide-react'
 
 import nnSvg from '../../public/images/projects/nn-svg.png'
@@ -72,6 +72,7 @@ export default function Projects() {
   const featuredProjects = projects.slice(0, 4)
   const remainingProjects = projects.slice(4)
   const [showMore, setShowMore] = useState(false)
+  const buttonRef = useRef<HTMLButtonElement>(null)
 
   return (
     <section id="projects" className="py-20 px-4 bg-white/5">
@@ -154,106 +155,120 @@ export default function Projects() {
               </ul>
             </motion.li>
           ))}
+        </ul>
+
+        <AnimatePresence onExitComplete={() => {
+          if (!showMore) {
+            buttonRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+          }
+        }}>
           {showMore && (
-            <>
-              {remainingProjects.map((project, index) => (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+                {remainingProjects.map((project, index) => (
+                  <motion.li
+                    key={project.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group flex flex-col p-6 rounded-2xl bg-surface border border-white/5 hover:border-accent/20 transition-colors"
+                  >
+                    <div className="mb-4 rounded-xl border border-white/5 bg-white/5 p-2">
+                      <div className="relative aspect-21/9 overflow-hidden rounded-lg">
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          placeholder="blur"
+                          className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
+                        <div className="pointer-events-none absolute inset-0 bg-black/30 opacity-60 transition-opacity duration-300 group-hover:opacity-0" />
+                      </div>
+                    </div>
+                    <div className="flex justify-between items-center mb-4">
+                      <div className="flex items-center gap-3">
+                        <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
+                          {project.icon}
+                        </div>
+                        <span className="text-xs font-mono text-accent bg-accent/10 px-2 py-1 rounded border border-accent/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                          {project.highlight}
+                        </span>
+                      </div>
+                      <div className="flex gap-3">
+                        {project.links.github && (
+                          <a
+                            href={project.links.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Open ${project.title} on GitHub`}
+                            className="text-secondary hover:text-white transition-colors"
+                          >
+                            <Github className="w-5 h-5" />
+                          </a>
+                        )}
+                        {project.links.demo && (
+                          <a
+                            href={project.links.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`Open ${project.title} demo`}
+                            className="text-secondary hover:text-white transition-colors"
+                          >
+                            <ExternalLink className="w-5 h-5" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">{project.title}</h3>
+                    <p className="text-secondary text-sm mb-4 grow">{project.description}</p>
+                    
+                    <ul className="flex flex-wrap gap-2 mt-auto">
+                      {project.tags.map(tag => (
+                        <li key={tag} className="text-xs px-2 py-1 rounded bg-white/5 text-secondary border border-white/5">
+                          {tag}
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.li>
+                ))}
                 <motion.li
-                  key={project.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: (featuredProjects.length + 1 + index) * 0.1 }}
-                  className="group flex flex-col p-6 rounded-2xl bg-surface border border-white/5 hover:border-accent/20 transition-colors"
+                  transition={{ delay: remainingProjects.length * 0.1 }}
+                  className="flex items-center justify-center md:col-span-2"
                 >
-                  <div className="mb-4 rounded-xl border border-white/5 bg-white/5 p-2">
-                    <div className="relative aspect-21/9 overflow-hidden rounded-lg">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        placeholder="blur"
-                        className="h-full w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                      />
-                      <div className="pointer-events-none absolute inset-0 bg-black/30 opacity-60 transition-opacity duration-300 group-hover:opacity-0" />
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
-                        {project.icon}
-                      </div>
-                      <span className="text-xs font-mono text-accent bg-accent/10 px-2 py-1 rounded border border-accent/20 opacity-0 group-hover:opacity-100 transition-opacity">
-                        {project.highlight}
-                      </span>
-                    </div>
-                    <div className="flex gap-3">
-                      {project.links.github && (
-                        <a
-                          href={project.links.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Open ${project.title} on GitHub`}
-                          className="text-secondary hover:text-white transition-colors"
-                        >
-                          <Github className="w-5 h-5" />
-                        </a>
-                      )}
-                      {project.links.demo && (
-                        <a
-                          href={project.links.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          aria-label={`Open ${project.title} demo`}
-                          className="text-secondary hover:text-white transition-colors"
-                        >
-                          <ExternalLink className="w-5 h-5" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">{project.title}</h3>
-                  <p className="text-secondary text-sm mb-4 grow">{project.description}</p>
-                  
-                  <ul className="flex flex-wrap gap-2 mt-auto">
-                    {project.tags.map(tag => (
-                      <li key={tag} className="text-xs px-2 py-1 rounded bg-white/5 text-secondary border border-white/5">
-                        {tag}
-                      </li>
-                    ))}
-                  </ul>
+                  <a
+                    href="https://github.com/wolgwang1729?tab=repositories"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group flex items-center justify-center px-4 py-2 rounded-full border border-white/10 bg-white/5 text-secondary text-sm hover:text-white hover:border-accent/40 transition-colors"
+                  >
+                    <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                      <Github className="w-4 h-4 text-accent" />
+                      Browse the full archive on GitHub.
+                      <ExternalLink className="w-4 h-4 text-secondary group-hover:text-white transition-colors" />
+                    </span>
+                  </a>
                 </motion.li>
-              ))}
-              <motion.li
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: (featuredProjects.length + 1 + remainingProjects.length) * 0.1 }}
-                className="flex items-center justify-center md:col-span-2"
-              >
-                <a
-                  href="https://github.com/wolgwang1729?tab=repositories"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group flex items-center justify-center px-4 py-2 rounded-full border border-white/10 bg-white/5 text-secondary text-sm hover:text-white hover:border-accent/40 transition-colors"
-                >
-                  <span className="inline-flex items-center gap-2 whitespace-nowrap">
-                    <Github className="w-4 h-4 text-accent" />
-                    Browse the full archive on GitHub.
-                    <ExternalLink className="w-4 h-4 text-secondary group-hover:text-white transition-colors" />
-                  </span>
-                </a>
-              </motion.li>
-            </>
+              </ul>
+            </motion.div>
           )}
-        </ul>
+        </AnimatePresence>
+
         <div className="flex justify-center mt-10">
-          <motion.button
+          <button
+            ref={buttonRef}
             type="button"
             onClick={() => setShowMore(!showMore)}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             className="inline-flex items-center justify-center gap-2 px-6 py-2 text-sm font-medium text-primary bg-surface/50 border border-white/10 rounded-full hover:bg-white/10 transition-colors"
           >
             {showMore ? (
@@ -265,7 +280,7 @@ export default function Projects() {
                 See More <ChevronDown className="w-4 h-4" />
               </>
             )}
-          </motion.button>
+          </button>
         </div>
       </div>
     </section>
