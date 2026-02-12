@@ -24,8 +24,7 @@ export const metadata: Metadata = {
   },
 }
 
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import ClientLayout from '@/components/ClientLayout'
 import SchemaMarkup from '@/components/SchemaMarkup'
 
 export default function RootLayout({
@@ -37,11 +36,9 @@ export default function RootLayout({
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth relative`}>
       <body className="bg-background text-primary min-h-screen font-sans selection:bg-accent/30 selection:text-accent overflow-x-hidden">
         <SchemaMarkup />
-        <Navbar />
-        <main className="relative flex min-h-screen flex-col items-center justify-between">
+        <ClientLayout>
           {children}
-        </main>
-        <Footer />
+        </ClientLayout>
       </body>
     </html>
   )

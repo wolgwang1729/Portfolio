@@ -1,10 +1,14 @@
 'use client'
 import Link from 'next/link'
-import { motion } from 'motion/react'
+import { motion, AnimatePresence } from 'motion/react'
 import { Menu, X, FileText, BookOpen } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Logo from '@/components/Logo'
+
+interface NavbarProps {
+  isLoading?: boolean
+}
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -15,7 +19,7 @@ const navItems = [
   { name: 'Contact', href: '#contact' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ isLoading = false }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('/')
   // Add this hook to check current path
@@ -63,18 +67,39 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav 
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
+      <nav 
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between py-4 px-6 md:px-8"
       >
         <Link href="/" className="flex items-center gap-2 group p-2 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg run overflow-hidden">
-          <Logo className="h-6 w-6" variant="clean" />
-          <span className="font-mono font-bold text-primary hidden sm:block">wolgwang</span>
+          <div className="relative w-6 h-6">
+             <AnimatePresence mode="wait">
+               {(!isLoading) && (
+                 <motion.div
+                   layoutId="main-logo"
+                   className="absolute inset-0"
+                   transition={{ duration: 0.8, ease: "easeInOut" }}
+                 >
+                   <Logo className="h-6 w-6" variant="clean" animationDuration={0} />
+                 </motion.div>
+               )}
+             </AnimatePresence>
+          </div>
+          <motion.span 
+            initial={{ opacity: 0, x: -10 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: isLoading ? 0.8 : 0 }}
+            className="font-mono font-bold text-primary hidden sm:block"
+          >
+            wolgwang
+          </motion.span>
         </Link>
 
-        <div className="flex items-center gap-3">
+        <motion.div 
+          className="flex items-center gap-3"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: isLoading ? 0.8 : 0 }}
+        >
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-2 p-1 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg">
             {navItems.map((item) => {
@@ -132,7 +157,7 @@ export default function Navbar() {
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Mobile menu */}
         <div
@@ -185,7 +210,7 @@ export default function Navbar() {
             </a>
           </div>
         </div>
-      </motion.nav>
+      </nav>
     </>
   )
 }

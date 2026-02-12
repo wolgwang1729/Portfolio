@@ -2,16 +2,24 @@
 import { motion } from 'motion/react'
 import { ArrowRight, Terminal } from 'lucide-react'
 import { BackgroundBeams } from '@/components/ui/background-beams'
+import { useLoading } from '@/context/LoadingContext'
 
 export default function Hero() {
+  const { isLoading } = useLoading()
+
+  // Define delays based on loading state
+  // If loading (splash screen active/just finished), add extra delay for logo transition
+  // Logo transition takes ~0.8s (from Navbar.tsx)
+  const baseDelay = isLoading ? 0.8 : 0.2
+
   return (
     <section className="flex flex-col items-center justify-center min-h-screen w-full px-4 pt-20 text-center relative overflow-hidden">
       <BackgroundBeams />
       <div className="relative z-10 flex flex-col items-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        animate={!isLoading ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, delay: baseDelay }}
         className="inline-flex items-center gap-2 px-3 py-1 mb-8 text-sm font-medium text-accent bg-accent/10 rounded-full"
       >
         <span className="relative flex h-2 w-2">
@@ -23,8 +31,8 @@ export default function Hero() {
 
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
+        animate={!isLoading ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: baseDelay + 0.1 }}
         className="text-5xl md:text-7xl font-bold font-mono tracking-tight text-primary mb-6"
       >
         Mayank Yadav
@@ -32,8 +40,8 @@ export default function Hero() {
 
       <motion.p
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        animate={!isLoading ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.8, delay: baseDelay + 0.2 }}
         className="text-xl text-secondary max-w-2xl mb-10"
       >
         Building at the intersection of <span className="text-white">Systems Engineering</span> and <span className="text-white">Computer Vision</span>.
@@ -41,8 +49,8 @@ export default function Hero() {
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+        animate={!isLoading ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5, delay: baseDelay + 0.3 }}
         className="flex gap-4"
       >
         <a 
