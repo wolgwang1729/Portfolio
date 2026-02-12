@@ -101,7 +101,7 @@ export default function Navbar({ isLoading = false }: NavbarProps) {
           transition={{ duration: 0.5, delay: isLoading ? 0.8 : 0 }}
         >
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-2 p-1 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg">
+          <div className="hidden lg:flex items-center gap-2 p-1 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg">
             {navItems.map((item) => {
               // Fix href for hash links when not on home
               const href = (item.href.startsWith('#') && pathname !== '/') 
@@ -146,7 +146,7 @@ export default function Navbar({ isLoading = false }: NavbarProps) {
           </div>
 
           {/* Mobile hamburger button */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="p-2 rounded-full border border-white/10 bg-surface/30 backdrop-blur-xl shadow-lg text-primary"
@@ -162,7 +162,7 @@ export default function Navbar({ isLoading = false }: NavbarProps) {
         {/* Mobile menu */}
         <div
           id="mobile-menu"
-          className={`md:hidden absolute top-full mt-2 left-4 right-4 p-3 rounded-2xl border border-white/10 bg-surface/80 backdrop-blur-xl shadow-lg transition-all duration-200 origin-top ${
+          className={`lg:hidden absolute top-full mt-2 left-4 right-4 p-3 rounded-2xl border border-white/10 bg-surface/80 backdrop-blur-xl shadow-lg transition-all duration-200 origin-top ${
             mobileOpen ? 'opacity-100 scale-y-100 pointer-events-auto' : 'opacity-0 scale-y-95 pointer-events-none'
           }`}
         >
