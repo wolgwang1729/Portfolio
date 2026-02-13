@@ -124,13 +124,15 @@ export default function Navbar({ isLoading = false }: NavbarProps) {
                 </Link>
               )
             })}
-            <Link
-              href="/blog"
+            <a
+              href="https://eotd-wolgwang.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-1 flex items-center gap-2 px-4 py-2 rounded-full bg-white text-black shadow-md hover:bg-gray-100 transition-all text-sm font-semibold"
             >
               <BookOpen className="w-4 h-4" />
               <span>Blog</span>
-            </Link>
+            </a>
             <motion.a
               href="/resume.pdf"
               target="_blank"
@@ -190,14 +192,16 @@ export default function Navbar({ isLoading = false }: NavbarProps) {
                 </Link>
               )
             })}
-            <Link
-              href="/blog"
+            <a
+              href="https://eotd-wolgwang.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
               className="px-4 py-3 text-sm font-semibold rounded-xl bg-white text-black hover:bg-gray-100 transition-all flex items-center gap-2"
             >
               <BookOpen className="w-4 h-4" />
               <span>Blog</span>
-            </Link>
+            </a>
             <a
               href="/resume.pdf"
               target="_blank"
