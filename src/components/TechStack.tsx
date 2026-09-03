@@ -54,41 +54,57 @@ const skills: Record<string, SkillItem[]> = {
 
 export default function TechStack() {
   return (
-    <section id="skills" className="py-20 px-4">
+    <section id="skills" className="py-20 px-4 scroll-mt-20">
       <div className="container mx-auto max-w-5xl">
-        <motion.h2 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-12 text-center"
+          transition={{ duration: 0.5 }}
         >
-          Technical Skills
-        </motion.h2>
+          <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 font-mono text-xs text-accent bg-accent/10 border border-accent/20 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
+            Toolbox
+          </div>
+          <div className="flex flex-col gap-3 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary tracking-tight">
+              Technical Skills
+            </h2>
+            <p className="text-secondary text-sm sm:text-base max-w-xl leading-relaxed">
+              Languages I think in, and the tools, frameworks and libraries I build with.
+            </p>
+          </div>
+          <div className="h-px bg-white/5 mb-12" aria-hidden="true" />
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
-          <SkillCard 
-            title="Languages" 
-            icon={<Code2 className="w-6 h-6 text-primary" />} 
-            items={skills.Languages} 
+          <SkillCard
+            title="Languages"
+            icon={<Code2 className="w-5 h-5 text-primary" />}
+            items={skills.Languages}
             delay={0}
+            showLogos
           />
-          <SkillCard 
-            title="Tools" 
-            icon={<Cpu className="w-6 h-6 text-primary" />} 
-            items={skills.Tools} 
-            delay={0.1}
+          <SkillCard
+            title="Tools"
+            icon={<Cpu className="w-5 h-5 text-primary" />}
+            items={skills.Tools}
+            delay={0.08}
+            showLogos
           />
-          <SkillCard 
-            title="Frameworks" 
-            icon={<Layers className="w-6 h-6 text-primary" />} 
-            items={skills.Frameworks} 
-            delay={0.2}
+          <SkillCard
+            title="Frameworks"
+            icon={<Layers className="w-5 h-5 text-primary" />}
+            items={skills.Frameworks}
+            delay={0.12}
+            showLogos
           />
-          <SkillCard 
-            title="Libraries" 
-            icon={<Boxes className="w-6 h-6 text-primary" />} 
-            items={skills.Libraries} 
-            delay={0.3}
+          <SkillCard
+            title="Libraries"
+            icon={<Boxes className="w-5 h-5 text-primary" />}
+            items={skills.Libraries}
+            delay={0.16}
+            showLogos
           />
         </div>
       </div>
@@ -96,44 +112,72 @@ export default function TechStack() {
   )
 }
 
-function SkillCard({ title, icon, items, delay }: { title: string, icon: React.ReactNode, items: SkillItem[], delay: number }) {
+function SkillCard({
+  title,
+  icon,
+  items,
+  delay,
+  showLogos,
+}: {
+  title: string
+  icon: React.ReactNode
+  items: SkillItem[]
+  delay: number
+  showLogos: boolean
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, delay, ease: [0.16, 1, 0.3, 1] }}
       className="p-6 rounded-2xl bg-surface border border-white/5 hover:border-white/10 transition-colors group h-full flex flex-col"
     >
-      <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
+      <div className="flex items-center gap-3 mb-5">
+        <div className="p-2.5 rounded-lg bg-white/5 group-hover:bg-white/10 transition-colors">
           {icon}
         </div>
-        <h3 className="text-xl font-bold text-primary">{title}</h3>
+        <h3 className="text-lg font-bold text-primary tracking-tight">{title}</h3>
+        <span className="ml-auto font-mono text-[11px] text-secondary/50">
+          {String(items.length).padStart(2, '0')}
+        </span>
       </div>
-      <div className="flex flex-wrap gap-2">
-        {items.map((item) => (
-          <span 
-            key={item.name} 
-            className="flex items-center gap-2 px-3 py-1 text-sm text-secondary bg-white/5 rounded-md border border-white/5"
-          >
-            <span className="flex items-center justify-center w-5 h-5 rounded bg-white/10 border border-white/10">
-              {item.logoUrl ? (
-                <Image
-                  src={item.logoUrl}
-                  alt={`${item.name} logo`}
-                  width={14}
-                  height={14}
-                  className="w-3.5 h-3.5 brightness-0 invert"
-                />
-              ) : (
-                item.fallbackIcon
-              )}
+      {showLogos ? (
+        <div className="flex flex-wrap gap-2">
+          {items.map((item) => (
+            <span
+              key={item.name}
+              className="flex items-center gap-2 pl-1.5 pr-3 py-1.5 text-[13px] text-secondary bg-white/[0.02] rounded-lg border border-white/5 hover:text-primary hover:border-white/15 transition-colors"
+            >
+              <span className="flex items-center justify-center w-6 h-6 rounded-md bg-white/5 border border-white/10">
+                {item.logoUrl ? (
+                  <Image
+                    src={item.logoUrl}
+                    alt={`${item.name} logo`}
+                    width={14}
+                    height={14}
+                    className="w-3.5 h-3.5 brightness-0 invert"
+                  />
+                ) : (
+                  item.fallbackIcon
+                )}
+              </span>
+              {item.name}
             </span>
-            {item.name}
-          </span>
-        ))}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-wrap gap-2">
+          {items.map((item) => (
+            <span
+              key={item.name}
+              className="px-3 py-1.5 font-mono text-[13px] text-secondary bg-white/[0.02] rounded-lg border border-white/5 hover:text-primary hover:border-white/15 transition-colors"
+            >
+              {item.name}
+            </span>
+          ))}
+        </div>
+      )}
     </motion.div>
   )
 }
