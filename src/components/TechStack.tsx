@@ -62,7 +62,7 @@ const skills: Record<string, SkillItem[]> = {
 export default function TechStack() {
   return (
     <section id="skills" className="py-20 px-4 scroll-mt-20">
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

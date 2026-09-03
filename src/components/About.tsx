@@ -18,17 +18,19 @@ export default function About() {
 
   return (
     <section id="about" className="py-20 px-4 scroll-mt-20">
-      <div className="max-w-4xl mx-auto">
+      <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono text-primary tracking-tight mb-6">
-            About Me
-          </h2>
-          <div className="h-px bg-white/5 mb-10" aria-hidden="true" />
+          <div className="flex flex-col gap-3 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono text-primary tracking-tight">
+              About Me
+            </h2>
+          </div>
+          <div className="h-px bg-white/5 mb-12" aria-hidden="true" />
         </motion.div>
 
         <motion.div
@@ -37,7 +39,7 @@ export default function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.05 }}
         >
-          <div className="space-y-6 leading-relaxed">
+          <div className="space-y-6 leading-relaxed max-w-4xl">
             <p className="text-lg sm:text-xl text-primary/90 leading-relaxed">
               Since I was young, I&rsquo;ve been fascinated by how things are built, how they work, and the components that make them function. Initially drawn to mechanical objects, my curiosity shifted to tech, and that&rsquo;s when I knew the path I wanted to take. Oh, and if you&rsquo;re wondering, <span className="font-mono text-accent">wolgwang</span> is my code name.
             </p>

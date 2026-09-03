@@ -53,21 +53,27 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="relative w-full font-sans md:px-10 py-10"
+      className="relative w-full container mx-auto max-w-6xl"
       ref={containerRef}
     >
-      <div className="max-w-7xl mx-auto py-6 px-4 md:px-8 lg:px-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary mb-12 text-left"
-        >
-          Experience
-        </motion.h2>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="flex flex-col gap-3 mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary tracking-tight">
+            Experience
+          </h2>
+          <p className="text-secondary text-sm sm:text-base max-w-xl leading-relaxed">
+            Where I&apos;ve worked and what I shipped.
+          </p>
+        </div>
+        <div className="h-px bg-white/5 mb-12" aria-hidden="true" />
+      </motion.div>
 
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-10">
+      <div ref={ref} className="relative w-full pb-10">
         {data.map((item, index) => (
           <div
             key={index}
