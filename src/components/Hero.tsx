@@ -26,7 +26,7 @@ export default function Hero() {
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
         </span>
-        Student @ DTU-CS
+        Final Year @ DTU-CS
       </motion.div>
 
       <motion.h1
@@ -44,7 +44,7 @@ export default function Hero() {
         transition={{ duration: 0.8, delay: baseDelay + 0.2 }}
         className="text-xl text-secondary max-w-2xl mb-10"
       >
-        Building at the intersection of <span className="text-white">Systems Engineering</span> and <span className="text-white">Computer Vision</span>.
+        I build across the stack: <span className="text-white">secure systems</span>, <span className="text-white">full-stack apps</span>, and <span className="text-white">ML pipelines</span>, and I ship open source.
       </motion.p>
 
       <motion.div
