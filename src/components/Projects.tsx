@@ -198,10 +198,6 @@ export default function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 font-mono text-xs text-accent bg-accent/10 border border-accent/20 rounded-full">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
-            Selected Work · 08
-          </div>
           <div className="flex flex-col gap-3 mb-6">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary tracking-tight">
               Featured Projects
