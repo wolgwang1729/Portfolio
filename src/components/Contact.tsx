@@ -1,76 +1,113 @@
 'use client'
+import { useState } from 'react'
 import { motion } from 'motion/react'
-import { Linkedin, Github, Mail } from 'lucide-react'
+import { Linkedin, Github, Mail, Copy, Check, ArrowUpRight } from 'lucide-react'
 import { RiInstagramLine, RiTwitterXLine } from 'react-icons/ri'
 
-const contactLinks = [
-  {
-    name: 'Email',
-    value: 'mayankyadav1729@gmail.com',
-    href: 'mailto:mayankyadav1729@gmail.com',
-    icon: Mail,
-    color: 'text-primary',
-    borderColor: 'hover:border-white/20',
-    bgHover: 'hover:bg-white/5',
-  },
+const EMAIL = 'mayankyadav1729@gmail.com'
+
+const socialLinks = [
   {
     name: 'LinkedIn',
     value: 'in/mayankyadav8',
     href: 'https://linkedin.com/in/mayankyadav8',
     icon: Linkedin,
-    color: 'text-primary',
-    borderColor: 'hover:border-white/20',
-    bgHover: 'hover:bg-white/5',
   },
   {
     name: 'GitHub',
     value: 'wolgwang1729',
     href: 'https://github.com/wolgwang1729',
     icon: Github,
-    color: 'text-primary',
-    borderColor: 'hover:border-white/20',
-    bgHover: 'hover:bg-white/5',
   },
   {
     name: 'X (Twitter)',
     value: '@wolgwang1729',
     href: 'https://x.com/wolgwang1729',
     icon: RiTwitterXLine,
-    color: 'text-primary',
-    borderColor: 'hover:border-white/20',
-    bgHover: 'hover:bg-white/5',
   },
   {
     name: 'Instagram',
     value: '@wolgwang1729',
     href: 'https://instagram.com/wolgwang1729',
     icon: RiInstagramLine,
-    color: 'text-primary',
-    borderColor: 'hover:border-white/20',
-    bgHover: 'hover:bg-white/5',
   },
 ]
 
 export default function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      setCopied(false)
+    }
+  }
+
   return (
-    <section id="contact" className="py-20 px-4">
+    <section id="contact" className="py-20 px-4 scroll-mt-20">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono text-primary mb-4">
-            Get In Touch
-          </h2>
-          <p className="text-secondary max-w-xl mx-auto text-sm sm:text-base">
-            Whether you want to discuss a project, ask a question, or just say hi, I'm always open to connecting!
-          </p>
+          <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 font-mono text-xs text-accent bg-accent/10 border border-accent/20 rounded-full">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
+            Contact
+          </div>
+          <div className="flex flex-col gap-3 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary tracking-tight">
+              Get In Touch
+            </h2>
+            <p className="text-secondary text-sm sm:text-base max-w-xl leading-relaxed">
+              Whether you want to discuss a project, ask a question, or just say hi, I am always open to connecting.
+            </p>
+          </div>
+          <div className="h-px bg-white/5 mb-12" aria-hidden="true" />
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          {contactLinks.map((link, index) => (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row sm:items-center gap-5 justify-between p-6 rounded-2xl bg-surface border border-white/5 hover:border-white/10 transition-colors mb-6"
+        >
+          <div className="flex items-center gap-4 min-w-0">
+            <div className="p-3 rounded-lg bg-white/5 shrink-0">
+              <Mail className="w-6 h-6 text-primary" />
+            </div>
+            <div className="flex flex-col min-w-0">
+              <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-secondary/60">Email</span>
+              <span className="text-base sm:text-lg font-semibold text-primary break-all leading-snug">
+                {EMAIL}
+              </span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              type="button"
+              onClick={copyEmail}
+              aria-label={copied ? 'Email copied' : 'Copy email address'}
+              className="p-3 rounded-full border border-white/10 text-secondary hover:text-white hover:bg-white/10 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+            >
+              {copied ? <Check className="w-4 h-4 text-accent" /> : <Copy className="w-4 h-4" />}
+            </button>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-black bg-white rounded-full hover:bg-white/90 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+            >
+              Write to me <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {socialLinks.map((link, index) => (
             <motion.a
               key={link.name}
               href={link.href}
@@ -79,19 +116,20 @@ export default function Contact() {
               aria-label={`Open ${link.name}: ${link.value}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl bg-surface border border-white/5 transition-all duration-300 ${link.borderColor} ${link.bgHover} group w-full max-w-[280px] sm:max-w-sm md:basis-[calc(50%-0.5rem)] lg:basis-[calc(33.333%-0.75rem)]`}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+              className="group flex items-center gap-3 p-4 rounded-2xl bg-surface border border-white/5 hover:border-white/15 hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
             >
-              <div className={`p-2 sm:p-3 rounded-lg bg-white/5 text-secondary group-hover:text-white transition-colors`}>
-                <link.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${link.color}`} />
+              <div className="p-2.5 rounded-lg bg-white/5 shrink-0">
+                <link.icon className="w-5 h-5 text-primary" />
               </div>
               <div className="flex flex-col min-w-0">
-                <span className="text-xs sm:text-sm text-secondary font-mono">{link.name}</span>
-                <span className="text-sm sm:text-base font-semibold text-primary group-hover:text-white transition-colors break-words leading-snug">
+                <span className="font-mono text-[11px] text-secondary/60">{link.name}</span>
+                <span className="text-sm font-semibold text-primary truncate">
                   {link.value}
                 </span>
               </div>
+              <ArrowUpRight className="w-4 h-4 ml-auto text-secondary/40 group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
             </motion.a>
           ))}
         </div>
