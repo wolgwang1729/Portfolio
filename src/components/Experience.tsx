@@ -55,7 +55,7 @@ export default function Experience() {
   ]
 
   return (
-    <section id="experience" className="relative w-full overflow-clip mb-20">
+    <section id="experience" className="relative w-full overflow-clip mb-20 scroll-mt-20">
       <Timeline data={data} />
     </section>
   )
