@@ -47,7 +47,7 @@ export default function About() {
             </p>
 
             <p className="text-base sm:text-lg text-secondary leading-relaxed">
-              I&rsquo;m currently a pre-final year student, pursuing a Bachelor of Technology in Computer Science at Delhi Technological University. I&rsquo;m passionate about creating AI solutions to solve real-world problems, and I have experience with transformers, RNNs, LSTMs, object detection, object segmentation, and computer vision. I&rsquo;m also skilled in web development, using tools like Tailwind, JavaScript, and React.
+              I&rsquo;m currently a final year student, pursuing a Bachelor of Technology in Computer Science at Delhi Technological University. I&rsquo;m passionate about creating AI solutions to solve real-world problems, and I have experience with transformers, RNNs, LSTMs, object detection, object segmentation, and computer vision. I&rsquo;m also skilled in web development, using tools like Tailwind, JavaScript, and React.
             </p>
 
             <AnimatePresence onExitComplete={() => {

@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'motion/react'
 import { Github, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react'
 
 import nnSvg from '../../public/images/projects/nn-svg.png'
+import sherlock from '../../public/images/projects/sherlock.png'
+import graphgrad from '../../public/images/projects/graphgrad.png'
 import vulcan16 from '../../public/images/projects/vulcan-16.png'
 import mentoringPortal from '../../public/images/projects/mentoring-portal.png'
 import intOView from '../../public/images/projects/int-o-view.png'
@@ -21,6 +23,22 @@ type Project = {
 }
 
 const projects: Project[] = [
+  {
+    title: 'Sherlock',
+    description: 'Local-first Bitcoin chain analysis tool that parses raw Bitcoin Core .dat files to reconstruct transaction graphs without full node indexing; 10+ rule-based heuristics with an interactive Next.js dashboard.',
+    tags: ['TypeScript', 'Next.js', 'Bitcoin'],
+    image: sherlock,
+    links: { github: 'https://github.com/wolgwang1729/Sherlock', demo: 'https://sherlock-bitcoin.vercel.app/' },
+    highlight: 'Bitcoin Forensics'
+  },
+  {
+    title: 'GraphGrad',
+    description: 'Interactive computation graph visualizer for forward passes and backpropagation with a custom autodiff engine (13 ops, micrograd-inspired); React Flow graphs, light and dark mode, Vitest suite.',
+    tags: ['TypeScript', 'React Flow', 'Autodiff'],
+    image: graphgrad,
+    links: { github: 'https://github.com/wolgwang1729/GraphGrad', demo: 'https://graphgrad.vercel.app/' },
+    highlight: 'Autodiff Engine'
+  },
   {
     title: 'Open Source: NN-SVG',
     description: 'Shipped a feature to NN-SVG (5.6k+ stars) that lets researchers upload custom textures for input layers in publication-ready neural network diagrams.',
@@ -182,7 +200,7 @@ export default function Projects() {
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 font-mono text-xs text-accent bg-accent/10 border border-accent/20 rounded-full">
             <span className="w-1.5 h-1.5 rounded-full bg-accent" aria-hidden="true" />
-            Selected Work · 06
+            Selected Work · 08
           </div>
           <div className="flex flex-col gap-3 mb-6">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-mono font-bold text-primary tracking-tight">

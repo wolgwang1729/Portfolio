@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 import { Link2, Target, Shield, Hexagon, Star, ArrowUpRight } from 'lucide-react'
 
 const contactProfiles = [
-  { name: 'GitHub', href: 'https://github.com/wolgwang', icon: '/images/profiles/github.svg' },
+  { name: 'GitHub', href: 'https://github.com/wolgwang1729', icon: '/images/profiles/github.svg' },
   { name: 'LinkedIn', href: 'https://linkedin.com/in/mayankyadav8', icon: '/images/profiles/linkedin.svg' },
   { name: 'Kaggle', href: 'https://www.kaggle.com/wolgwang', icon: '/images/profiles/kaggle.svg' },
   { name: 'Stack Overflow', href: 'https://stackoverflow.com/users/14219194/wolgwang', icon: '/images/profiles/stack-overflow.svg' },
@@ -12,7 +12,7 @@ const contactProfiles = [
 
 const cpProfiles = [
   { name: 'Codeforces', href: 'https://codeforces.com/profile/wolgwang', icon: '/images/profiles/codeforces.svg' },
-  { name: 'LeetCode', href: 'https://www.leetcode.com/wolgwang', icon: '/images/profiles/leet-code.svg' },
+  { name: 'LeetCode', href: 'https://leetcode.com/u/wolgwang', icon: '/images/profiles/leet-code.svg' },
   { name: 'AtCoder', href: 'https://atcoder.jp/users/wolgwang', icon: '/images/profiles/atcoder.png' },
   { name: 'CodeChef', href: 'https://www.codechef.com/users/wolgwang', icon: '/images/profiles/codechef.jpeg' },
 ]
