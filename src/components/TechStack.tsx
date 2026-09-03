@@ -68,25 +68,25 @@ export default function TechStack() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
           <SkillCard 
             title="Languages" 
-            icon={<Code2 className="w-6 h-6 text-accent" />} 
+            icon={<Code2 className="w-6 h-6 text-primary" />} 
             items={skills.Languages} 
             delay={0}
           />
           <SkillCard 
             title="Tools" 
-            icon={<Cpu className="w-6 h-6 text-purple-400" />} 
+            icon={<Cpu className="w-6 h-6 text-primary" />} 
             items={skills.Tools} 
             delay={0.1}
           />
           <SkillCard 
             title="Frameworks" 
-            icon={<Layers className="w-6 h-6 text-blue-400" />} 
+            icon={<Layers className="w-6 h-6 text-primary" />} 
             items={skills.Frameworks} 
             delay={0.2}
           />
           <SkillCard 
             title="Libraries" 
-            icon={<Boxes className="w-6 h-6 text-accent" />} 
+            icon={<Boxes className="w-6 h-6 text-primary" />} 
             items={skills.Libraries} 
             delay={0.3}
           />

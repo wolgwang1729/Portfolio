@@ -8,13 +8,13 @@ const contactLinks = [
     name: 'Email',
     href: 'mailto:mayankyadav1729@gmail.com',
     icon: Mail,
-    hover: 'hover:text-accent',
+    hover: 'hover:text-white',
   },
   {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/mayankyadav8/',
     icon: Linkedin,
-    hover: 'hover:text-blue-400',
+    hover: 'hover:text-white',
   },
   {
     name: 'GitHub',
@@ -26,13 +26,13 @@ const contactLinks = [
     name: 'X (Twitter)',
     href: 'https://x.com/wolgwang1729',
     icon: RiTwitterXLine,
-    hover: 'hover:text-sky-400',
+    hover: 'hover:text-white',
   },
   {
     name: 'Instagram',
     href: 'https://instagram.com/wolgwang1729',
     icon: RiInstagramLine,
-    hover: 'hover:text-pink-400',
+    hover: 'hover:text-white',
   },
 ]
 
