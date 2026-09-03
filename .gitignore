@@ -1,3 +1,4 @@
 node_modules
 .next
-.agents
+.agents/*
+!.agents/skills
