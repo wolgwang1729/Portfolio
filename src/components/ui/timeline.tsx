@@ -17,11 +17,31 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
+    const el = ref.current;
+    if (!el) return;
+
+    const measure = () => {
+      setHeight(el.getBoundingClientRect().height);
+    };
+
+    // Measure now, once more after paint, and live on any layout change
+    // so the scroll beam always matches the full entries column height.
+    measure();
+    const raf = requestAnimationFrame(measure);
+
+    const observer = new ResizeObserver(measure);
+    observer.observe(el);
+    window.addEventListener("resize", measure);
+    if (document.fonts) {
+      document.fonts.ready.then(measure).catch(() => undefined);
     }
-  }, [ref]);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
