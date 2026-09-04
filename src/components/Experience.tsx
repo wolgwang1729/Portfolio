@@ -85,7 +85,7 @@ export default function Experience() {
             Research Intern
           </h3>
           <p className="text-accent text-sm font-mono mb-4">
-            @MLR, DTU (Vision-based Pose Estimation) • Jun 2025 — Dec 2025
+            @MLR, DTU (Vision-based Pose Estimation) • Jun 2025 — Nov 2025
           </p>
           <p className="mb-4 text-xs md:text-sm font-normal text-neutral-400">
             Developed 5+ deep learning models for vision-based pose estimation
